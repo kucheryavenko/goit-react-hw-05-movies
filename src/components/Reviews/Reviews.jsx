@@ -12,7 +12,6 @@ export const Reviews = () => {
     const getReviews = async () => {
       try {
         const { data } = await movieApiService.fetchReviews(movieId);
-        console.log(data.results);
         setReviews(data.results);
       } catch (error) {
         console.log(error);
@@ -23,7 +22,7 @@ export const Reviews = () => {
 
   return (
     <>
-      {reviews.lenght !== 0 ? (
+      {reviews.length !== 0 ? (
         <ul>
           {reviews.map(({ id, author, content }) => {
             return (
@@ -35,7 +34,7 @@ export const Reviews = () => {
           })}
         </ul>
       ) : (
-        <p>We don't have any reviews for this movie</p>
+        <p>We don't have any reviews for this movie.</p>
       )}
     </>
   );

@@ -6,11 +6,12 @@ import { GlobalStyle, theme } from 'styles';
 import { App } from 'components/App/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  <BrowserRouter basename="/goit-react-hw-05-movies/">
-    <ThemeProvider theme={theme}>
-      <GlobalStyle styles={GlobalStyle} />
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter basename="/goit-react-hw-05-movies/">
+      <ThemeProvider theme={theme}>
+        <GlobalStyle styles={GlobalStyle} />
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

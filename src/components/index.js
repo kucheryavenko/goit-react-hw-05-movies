@@ -1,4 +1,5 @@
 export * from 'components/App/App.styled';
+export * from 'components/Layout/Layout';
 export * from 'components/ListMovies/ListMovies';
 export * from 'components/MovieInfo/MovieInfo';
 export * from 'components/Searchbar/Searchbar';

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { MovieApiService } from 'services/movieApiService';
 import { MovieInfo } from 'components';
 
@@ -9,6 +9,7 @@ export const MovieDetails = () => {
   const [details, setDetails] = useState({});
   const [status, setStatus] = useState('idle');
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     const getMovieById = async () => {
@@ -31,17 +32,10 @@ export const MovieDetails = () => {
 
   return (
     <main>
-      <button type="button">Go back</button>
-      {status === 'resolve' && <MovieInfo details={details} />}
-      <h2>Additional information</h2>
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+      <Link to={location.state.from}>Go back</Link>
+      {details !== {} && status === 'resolve' && (
+        <MovieInfo details={details} location={location.state} />
+      )}
       <Outlet />
     </main>
   );

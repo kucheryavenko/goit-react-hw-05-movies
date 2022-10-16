@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Searchbar, ListMovies } from 'components';
 import { MovieApiService } from 'services/movieApiService';
 
@@ -6,15 +7,16 @@ const movieApiService = new MovieApiService();
 
 export const Movies = () => {
   const [searchMovies, setSearchMovies] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
     const getSearchMovie = async () => {
-      if (!searchQuery) {
+      if (!query) {
         return;
       }
       try {
-        const { data } = await movieApiService.fetchSearchMovie(searchQuery);
+        const { data } = await movieApiService.fetchSearchMovie(query);
         setSearchMovies(data.results);
       } catch (error) {
         console.log(error);
@@ -22,10 +24,10 @@ export const Movies = () => {
     };
 
     getSearchMovie();
-  }, [searchMovies, searchQuery]);
+  }, [searchMovies, query]);
 
   const handleFormSubmit = searchQuery => {
-    setSearchQuery(searchQuery);
+    setSearchParams(searchQuery !== '' ? { query: searchQuery } : {});
     setSearchMovies([]);
   };
 
