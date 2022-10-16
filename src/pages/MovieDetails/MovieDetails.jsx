@@ -6,9 +6,9 @@ import { MovieInfo } from 'components';
 const movieApiService = new MovieApiService();
 
 export const MovieDetails = () => {
-  const { movieId } = useParams();
   const [details, setDetails] = useState({});
   const [status, setStatus] = useState('idle');
+  const { movieId } = useParams();
 
   useEffect(() => {
     const getMovieById = async () => {

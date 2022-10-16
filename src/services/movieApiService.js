@@ -41,4 +41,24 @@ export class MovieApiService {
 
     return response;
   }
+
+  async fetchCast(id) {
+    const response = await axios.get(`movie/${id}/credits`, {
+      params: {
+        api_key: this.#KEY_API,
+      },
+    });
+
+    return response;
+  }
+
+  async fetchReviews(id) {
+    const response = await axios.get(`movie/${id}/reviews`, {
+      params: {
+        api_key: this.#KEY_API,
+      },
+    });
+
+    return response;
+  }
 }
