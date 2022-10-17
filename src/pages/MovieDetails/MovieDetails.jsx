@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { MovieApiService } from 'services/movieApiService';
@@ -44,7 +44,9 @@ const MovieDetails = () => {
         <MovieInfo details={details} location={location.state} />
       )}
       {status === 'pending' && <Loader />}
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

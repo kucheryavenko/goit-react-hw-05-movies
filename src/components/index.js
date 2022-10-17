@@ -6,8 +6,6 @@ export * from 'components/MovieInfo/MovieInfo';
 export * from 'components/MovieInfo/MovieInfo.styled';
 export * from 'components/Searchbar/Searchbar';
 export * from 'components/Searchbar/Searchbar.styled';
-export * from 'components/Cast/Cast';
 export * from 'components/Cast/Cast.styled';
-export * from 'components/Reviews/Reviews';
 export * from 'components/Loader/Loader';
 export * from 'components/Loader/Loader.styled';

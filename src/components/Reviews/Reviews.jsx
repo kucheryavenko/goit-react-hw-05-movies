@@ -4,7 +4,7 @@ import { MovieApiService } from 'services/movieApiService';
 
 const movieApiService = new MovieApiService();
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
@@ -39,3 +39,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

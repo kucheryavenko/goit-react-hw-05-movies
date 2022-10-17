@@ -5,7 +5,7 @@ import { Thumb, Img } from 'components';
 
 const movieApiService = new MovieApiService();
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
@@ -43,3 +43,5 @@ export const Cast = () => {
     </ul>
   );
 };
+
+export default Cast;
