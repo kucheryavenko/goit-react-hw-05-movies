@@ -6,7 +6,7 @@ import { MovieInfo, Loader } from 'components';
 
 const movieApiService = new MovieApiService();
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [details, setDetails] = useState({});
   const [status, setStatus] = useState('idle');
   const { movieId } = useParams();
@@ -48,3 +48,5 @@ export const MovieDetails = () => {
     </main>
   );
 };
+
+export default MovieDetails;

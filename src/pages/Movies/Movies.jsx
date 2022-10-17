@@ -6,7 +6,7 @@ import { MovieApiService } from 'services/movieApiService';
 
 const movieApiService = new MovieApiService();
 
-export const Movies = () => {
+const Movies = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [status, setStatus] = useState('idle');
@@ -55,3 +55,5 @@ export const Movies = () => {
     </main>
   );
 };
+
+export default Movies;

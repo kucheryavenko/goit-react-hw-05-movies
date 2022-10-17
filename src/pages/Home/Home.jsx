@@ -5,7 +5,7 @@ import { MovieApiService } from 'services/movieApiService';
 
 const movieApiService = new MovieApiService();
 
-export const Home = () => {
+const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [status, setStatus] = useState('idle');
 
@@ -45,3 +45,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;
