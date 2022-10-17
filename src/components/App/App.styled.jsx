@@ -5,6 +5,5 @@ export const Container = styled.div`
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px 15px;
-  /* text-align: center; */
+  padding: 0px 15px;
 `;

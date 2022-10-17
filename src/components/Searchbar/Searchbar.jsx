@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import { Form } from 'components';
 
 export const Searchbar = ({ onSubmit }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,7 +13,7 @@ export const Searchbar = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (searchQuery.trim() === '') {
-      alert('Please, enter the name of the movie!');
+      toast.warn('Please, enter your search term into the search field!');
       return;
     }
 
@@ -20,7 +22,7 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <input
         type="text"
         autoComplete="off"
@@ -30,7 +32,7 @@ export const Searchbar = ({ onSubmit }) => {
         onChange={handleQueryChange}
       />
       <button type="submit">Search</button>
-    </form>
+    </Form>
   );
 };
 

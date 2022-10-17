@@ -3,6 +3,7 @@ export const theme = {
     body: '#f5f4fa',
     primary: '#fff',
     secondary: '#f6f8fa',
+    primaryAccent: '#24292f',
     accent: '#2da44e',
     hover: '#2c974b',
     border: 'rgba(27,31,36,0.15)',

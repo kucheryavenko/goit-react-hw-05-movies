@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { MovieApiService } from 'services/movieApiService';
-import { MovieInfo } from 'components';
+import { MovieInfo, Loader } from 'components';
 
 const movieApiService = new MovieApiService();
 
@@ -16,11 +17,14 @@ export const MovieDetails = () => {
       try {
         setStatus('pending');
         const { data } = await movieApiService.fetchMovieById(movieId);
-        if (!data) {
-          return console.log('No data!');
+
+        if (data.length === 0) {
+          toast.error('Ooops, someting went wrong. Please, try again.');
+          setStatus('rejected');
+          return;
         }
-        setDetails(data);
         setStatus('resolve');
+        setDetails(data);
       } catch (error) {
         console.log(error);
         setStatus('rejected');
@@ -30,12 +34,16 @@ export const MovieDetails = () => {
     getMovieById();
   }, [movieId]);
 
+  if (location.state.from === null) {
+    return;
+  }
   return (
     <main>
       <Link to={location.state.from}>Go back</Link>
       {details !== {} && status === 'resolve' && (
         <MovieInfo details={details} location={location.state} />
       )}
+      {status === 'pending' && <Loader />}
       <Outlet />
     </main>
   );
