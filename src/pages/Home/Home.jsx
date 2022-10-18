@@ -40,7 +40,9 @@ const Home = () => {
   return (
     <main>
       <h1>Trending today</h1>
-      <ListMovies movies={trendingMovies} path={'movies/'} />
+      {trendingMovies.length > 0 && (
+        <ListMovies movies={trendingMovies} path={'movies/'} />
+      )}
       {status === 'pending' && <Loader />}
     </main>
   );

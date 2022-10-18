@@ -44,13 +44,10 @@ const Movies = () => {
     setSearchMovies([]);
   };
 
-  if (searchMovies === null) {
-    return;
-  }
   return (
     <main>
       <Searchbar onSubmit={handleFormSubmit} />
-      {searchMovies !== [] && <ListMovies movies={searchMovies} />}
+      {searchMovies.length > 0 && <ListMovies movies={searchMovies} />}
       {status === 'pending' && <Loader />}
     </main>
   );

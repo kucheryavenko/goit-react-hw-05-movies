@@ -34,14 +34,12 @@ const MovieDetails = () => {
     getMovieById();
   }, [movieId]);
 
-  if (location.state.from === null) {
-    return;
-  }
+  console.log(location);
   return (
     <main>
-      <Link to={location.state.from}>Go back</Link>
-      {details !== {} && status === 'resolve' && (
-        <MovieInfo details={details} location={location.state} />
+      <Link to={location.state ? location.state.from : '/'}>Go back</Link>
+      {status === 'resolve' && (
+        <MovieInfo details={details} location={location.state ?? '/'} />
       )}
       {status === 'pending' && <Loader />}
       <Suspense fallback={null}>

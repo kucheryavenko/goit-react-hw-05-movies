@@ -48,5 +48,4 @@ export const MovieInfo = ({ details, location }) => {
 
 MovieInfo.propTypes = {
   details: PropTypes.object.isRequired,
-  location: PropTypes.object,
 };
