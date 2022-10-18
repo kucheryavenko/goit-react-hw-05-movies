@@ -34,7 +34,6 @@ const MovieDetails = () => {
     getMovieById();
   }, [movieId]);
 
-  console.log(location);
   return (
     <main>
       <Link to={location.state ? location.state.from : '/'}>Go back</Link>
