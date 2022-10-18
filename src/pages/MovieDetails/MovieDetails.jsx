@@ -7,7 +7,7 @@ import { MovieInfo, Loader } from 'components';
 const movieApiService = new MovieApiService();
 
 const MovieDetails = () => {
-  const [details, setDetails] = useState({});
+  const [details, setDetails] = useState(null);
   const [status, setStatus] = useState('idle');
   const { movieId } = useParams();
   const location = useLocation();
@@ -37,7 +37,7 @@ const MovieDetails = () => {
   return (
     <main>
       <Link to={location.state ? location.state.from : '/'}>Go back</Link>
-      {status === 'resolve' && (
+      {details !== null && (
         <MovieInfo details={details} location={location.state ?? '/'} />
       )}
       {status === 'pending' && <Loader />}
