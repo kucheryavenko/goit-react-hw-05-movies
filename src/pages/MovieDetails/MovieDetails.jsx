@@ -36,7 +36,7 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Link to={location.state ? location.state.from : '/'}>Go back</Link>
+      <Link to={location?.state?.from || '/'}>Go back</Link>
       {details !== null && (
         <MovieInfo details={details} location={location.state ?? '/'} />
       )}
